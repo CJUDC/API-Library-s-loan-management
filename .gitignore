@@ -31,3 +31,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Recomendación de claude ###
+.env
+*.sql
+backup.sql
