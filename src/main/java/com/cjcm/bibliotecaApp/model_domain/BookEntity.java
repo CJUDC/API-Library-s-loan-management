@@ -1,0 +1,29 @@
+package com.cjcm.bibliotecaApp.model_domain;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Entity
+@Getter @Setter
+@NoArgsConstructor
+@Table(name = "books")
+public class BookEntity {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer bookId;
+
+  @Column(nullable = false, length = 255)
+  private String title;
+
+  @Column(nullable = false, length = 100)
+  private String author;
+
+  @Column(nullable = false)
+  private Integer stock;
+
+  @Column(nullable = false, unique = true, length = 20)
+  private String isbn;
+}
