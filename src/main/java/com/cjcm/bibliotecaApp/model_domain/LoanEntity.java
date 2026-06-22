@@ -17,8 +17,14 @@ public class LoanEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer loanId;
 
+  @Column
+  private LocalDateTime startDate;
+
   @Column(nullable = false)
   private LocalDateTime expireDate;
+
+  @Column
+  private LocalDateTime returnDate;
 
   @Enumerated(EnumType.STRING)
   @Column(name = "loan_state", nullable = false)
