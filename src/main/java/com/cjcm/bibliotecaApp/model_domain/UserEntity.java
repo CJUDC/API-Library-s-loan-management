@@ -29,6 +29,6 @@ public class UserEntity {
   @Column(nullable = false, length = 200)
   private String password;
 
-  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
   private List<LoanEntity> loans;
 }

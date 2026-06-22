@@ -30,7 +30,7 @@ public class LoanEntity {
   @Column(name = "loan_state", nullable = false)
   private LoanState state;
 
-  @ManyToOne
+  @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "user_id")
   private UserEntity user;
 }
