@@ -15,5 +15,12 @@ public class LoanBookEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer loanBookId;
 
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "loan_id")
+  private LoanEntity loan;
+
+  @ManyToOne(fetch = FetchType.LAZY)
+  @JoinColumn(name = "book_id")
+  private BookEntity book;
 
 }
