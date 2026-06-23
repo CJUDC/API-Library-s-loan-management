@@ -1,5 +1,6 @@
 package com.cjcm.bibliotecaApp.model_domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -30,5 +31,6 @@ public class UserEntity {
   private String password;
 
   @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+  @JsonIgnore
   private List<LoanEntity> loans;
 }
