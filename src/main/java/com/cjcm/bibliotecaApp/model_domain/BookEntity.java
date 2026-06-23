@@ -1,5 +1,6 @@
 package com.cjcm.bibliotecaApp.model_domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -30,5 +31,6 @@ public class BookEntity {
   private String isbn;
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "book")
+  @JsonIgnore
   private List<LoanBookEntity> loanBooks;
 }
