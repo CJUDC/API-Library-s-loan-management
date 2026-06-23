@@ -25,4 +25,9 @@ public class LoanController {
     return ResponseEntity.ok(loans);
   }
 
+  @GetMapping("/{loanId}")
+  public ResponseEntity<LoanEntity> getLoanById(Integer loanId) {
+    return ResponseEntity.ok(loanService.getLoanById(loanId));
+  }
+
 }
