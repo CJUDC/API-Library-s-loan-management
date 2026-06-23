@@ -19,5 +19,19 @@ public class UserService {
     return userRepository.findAll();
   }
 
+  public UserEntity getUserById(Integer id) {
+    return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+  }
 
+  public UserEntity createUser(UserEntity userEntity){
+
+    userEntity = UserEntity.builder()
+            .email(userEntity.getEmail())
+            .name(userEntity.getName())
+            .lastName(userEntity.getLastName())
+            .password(userEntity.getPassword())
+            .build();
+
+    return userEntity;
+  }
 }
