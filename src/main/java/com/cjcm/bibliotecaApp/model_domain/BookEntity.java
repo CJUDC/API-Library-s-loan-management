@@ -1,15 +1,15 @@
 package com.cjcm.bibliotecaApp.model_domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Getter @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "books")
 public class BookEntity {
 
