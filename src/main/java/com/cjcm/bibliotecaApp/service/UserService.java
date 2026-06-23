@@ -32,6 +32,6 @@ public class UserService {
             .password(userEntity.getPassword())
             .build();
 
-    return userEntity;
+    return userRepository.save(userEntity);
   }
 }

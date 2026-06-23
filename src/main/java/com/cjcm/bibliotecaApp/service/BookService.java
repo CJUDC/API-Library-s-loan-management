@@ -21,4 +21,15 @@ public class BookService {
   public BookEntity getBookById(Integer id){
     return bookRepository.findById(id).orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
   }
+
+  public BookEntity createBook(BookEntity bookEntity){
+    bookEntity = BookEntity.builder()
+            .title(bookEntity.getTitle())
+            .author(bookEntity.getAuthor())
+            .stock(bookEntity.getStock())
+            .isbn(bookEntity.getIsbn())
+            .build();
+
+    return bookRepository.save(bookEntity);
+  }
 }
