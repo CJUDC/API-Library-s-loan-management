@@ -17,4 +17,8 @@ public class BookService {
   public List<BookEntity> getAllBooks(){
     return bookRepository.findAll();
   }
+
+  public BookEntity getBookById(Integer id){
+    return bookRepository.findById(id).orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
+  }
 }
