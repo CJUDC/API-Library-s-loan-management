@@ -3,9 +3,7 @@ package com.cjcm.bibliotecaApp.controller;
 import com.cjcm.bibliotecaApp.model_domain.LoanEntity;
 import com.cjcm.bibliotecaApp.service.LoanService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,6 +26,12 @@ public class LoanController {
   @GetMapping("/{loanId}")
   public ResponseEntity<LoanEntity> getLoanById(Integer loanId) {
     return ResponseEntity.ok(loanService.getLoanById(loanId));
+  }
+
+  @PostMapping("/create")
+  public ResponseEntity<Void> createLoan(@RequestBody LoanEntity loan) {
+    loanService.createLoan(loan);
+    return ResponseEntity.ok().build();
   }
 
 }
