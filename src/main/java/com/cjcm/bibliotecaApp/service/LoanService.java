@@ -17,4 +17,9 @@ public class LoanService {
   public List<LoanEntity> getAllLoans(){
     return loanRepository.findAll();
   }
+
+  public LoanEntity getLoanById(Integer loanId) {
+    return loanRepository.findById(loanId).orElseThrow(() -> new RuntimeException("Loan not found"));
+  }
+
 }
