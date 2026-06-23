@@ -22,4 +22,16 @@ public class LoanService {
     return loanRepository.findById(loanId).orElseThrow(() -> new RuntimeException("Loan not found"));
   }
 
+  public LoanEntity createLoan(LoanEntity loan) {
+
+    loan = LoanEntity.builder()
+            .startDate(loan.getStartDate())
+            .expireDate(loan.getExpireDate())
+            .returnDate(loan.getReturnDate())
+            .state(loan.getState())
+            .user(loan.getUser())
+            .loanBooks(loan.getLoanBooks())
+            .build();
+    return loanRepository.save(loan);
+  }
 }
