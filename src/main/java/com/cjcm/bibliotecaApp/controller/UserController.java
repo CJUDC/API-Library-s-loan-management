@@ -3,6 +3,8 @@ package com.cjcm.bibliotecaApp.controller;
 import com.cjcm.bibliotecaApp.model_domain.UserEntity;
 import com.cjcm.bibliotecaApp.service.UserService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,8 +20,16 @@ public class UserController {
     this.userService = userService;
   }
 
+  @GetMapping("/users")
   public ResponseEntity<List<UserEntity>> getAllUsers() {
     List<UserEntity> users = userService.getAllUsers();
     return ResponseEntity.ok(users);
+  }
+
+
+  @GetMapping("/users/{id}")
+  public ResponseEntity<UserEntity> getUserById(@PathVariable Integer id) {
+    UserEntity user = userService.getUserById(id);
+    return ResponseEntity.ok(user);
   }
 }
