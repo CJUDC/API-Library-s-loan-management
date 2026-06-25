@@ -1,7 +1,7 @@
 package com.cjcm.bibliotecaApp.service;
 
-import com.cjcm.bibliotecaApp.dto.UserRequestDto;
-import com.cjcm.bibliotecaApp.dto.UserResponseDto;
+import com.cjcm.bibliotecaApp.dto.userDtos.UserRequestDto;
+import com.cjcm.bibliotecaApp.dto.userDtos.UserResponseDto;
 import com.cjcm.bibliotecaApp.mappers.UserMapper;
 import com.cjcm.bibliotecaApp.persistence.entities.UserEntity;
 import com.cjcm.bibliotecaApp.persistence.repository.UserRepository;
