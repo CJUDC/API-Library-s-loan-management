@@ -1,22 +1,32 @@
 package com.cjcm.bibliotecaApp.service;
 
+import com.cjcm.bibliotecaApp.dto.UserResponseDto;
+import com.cjcm.bibliotecaApp.mappers.UserMapper;
 import com.cjcm.bibliotecaApp.persistence.entities.UserEntity;
 import com.cjcm.bibliotecaApp.persistence.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
 
   private final UserRepository userRepository;
+  private final UserMapper userMapper;
 
-  public UserService(UserRepository userRepository) {
+  public UserService(UserRepository userRepository, UserMapper userMapper) {
     this.userRepository = userRepository;
+    this.userMapper = userMapper;
   }
 
-  public List<UserEntity> getAllUsers() {
-    return userRepository.findAll();
+  public List<UserResponseDto> getAllUsers() {
+
+    List<UserEntity> users = userRepository.findAll();
+
+    return users.stream()
+            .map(UserMapper::mapToUserResponseDto)
+            .toList();
   }
 
   public UserEntity getUserById(Integer id) {
