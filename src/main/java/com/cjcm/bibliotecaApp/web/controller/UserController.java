@@ -31,9 +31,9 @@ public class UserController {
     return ResponseEntity.ok(user);
   }
 
-  @PostMapping("/users")
-  public ResponseEntity<Void> createUser(@RequestBody UserEntity user) {
-    userService.createUser(user);
-    return ResponseEntity.ok().build();
-  }
+//  @PostMapping("/users")
+//  public ResponseEntity<Void> createUser(@RequestBody UserEntity user) {
+//    userService.createUser(user);
+//    return ResponseEntity.ok().build();
+//  }
 }
