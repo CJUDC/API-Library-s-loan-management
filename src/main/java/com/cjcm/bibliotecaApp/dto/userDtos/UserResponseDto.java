@@ -1,4 +1,4 @@
-package com.cjcm.bibliotecaApp.dto;
+package com.cjcm.bibliotecaApp.dto.userDtos;
 
 import lombok.Builder;
 

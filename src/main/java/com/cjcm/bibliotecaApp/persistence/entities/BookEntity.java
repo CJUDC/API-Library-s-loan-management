@@ -1,16 +1,15 @@
 package com.cjcm.bibliotecaApp.persistence.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
 @Getter @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Table(name = "books")
 public class BookEntity {
 
@@ -31,6 +30,5 @@ public class BookEntity {
   private String isbn;
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "book")
-  @JsonIgnore
   private List<LoanBookEntity> loanBooks;
 }

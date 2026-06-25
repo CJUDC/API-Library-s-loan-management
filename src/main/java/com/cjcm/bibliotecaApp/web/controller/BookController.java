@@ -1,6 +1,7 @@
 package com.cjcm.bibliotecaApp.web.controller;
 
-import com.cjcm.bibliotecaApp.persistence.entities.BookEntity;
+import com.cjcm.bibliotecaApp.dto.bookDtos.BookRequestDto;
+import com.cjcm.bibliotecaApp.dto.bookDtos.BookResponseDto;
 import com.cjcm.bibliotecaApp.service.BookService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,20 +19,19 @@ public class BookController {
   }
 
   @GetMapping
-  public ResponseEntity<List<BookEntity>> getAllBooks() {
-    List<BookEntity> books = bookService.getAllBooks();
+  public ResponseEntity<List<BookResponseDto>> getAllBooks() {
+    List<BookResponseDto> books = bookService.getAllBooks();
     return ResponseEntity.ok(books);
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<BookEntity> getBookById(@PathVariable Integer id) {
-    BookEntity book = bookService.getBookById(id);
-    return ResponseEntity.ok(book);
+  public ResponseEntity<BookResponseDto> getBookById(@PathVariable Integer id) {
+    return ResponseEntity.ok(bookService.getBookById(id));
   }
 
   @PostMapping("/add")
-  public ResponseEntity<Void> createBook(@RequestBody BookEntity book) {
-    bookService.createBook(book);
-    return ResponseEntity.ok().build();
+  public ResponseEntity<BookResponseDto> createBook(@RequestBody BookRequestDto bookRequestDto) {
+
+    return ResponseEntity.ok(bookService.createBook(bookRequestDto));
   }
 }
