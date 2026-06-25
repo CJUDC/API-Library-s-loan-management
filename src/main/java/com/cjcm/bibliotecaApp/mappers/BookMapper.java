@@ -1,5 +1,6 @@
 package com.cjcm.bibliotecaApp.mappers;
 
+import com.cjcm.bibliotecaApp.dto.bookDtos.BookRequestDto;
 import com.cjcm.bibliotecaApp.dto.bookDtos.BookResponseDto;
 import com.cjcm.bibliotecaApp.persistence.entities.BookEntity;
 import org.springframework.stereotype.Component;
@@ -15,5 +16,18 @@ public class BookMapper {
             .stock(bookEntity.getStock())
             .isbn(bookEntity.getIsbn())
             .build();
+  }
+
+  public BookEntity mapToBookEntity(BookRequestDto bookRequestDto){
+
+    BookEntity bookEntity = new BookEntity();
+
+    bookEntity.setTitle(bookRequestDto.title());
+    bookEntity.setAuthor(bookRequestDto.author());
+    bookEntity.setStock(bookRequestDto.stock());
+    bookEntity.setIsbn(bookRequestDto.isbn());
+
+    return bookEntity;
+
   }
 }
