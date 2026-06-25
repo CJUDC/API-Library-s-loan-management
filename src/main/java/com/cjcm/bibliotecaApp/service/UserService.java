@@ -1,5 +1,8 @@
 package com.cjcm.bibliotecaApp.service;
 
+import com.cjcm.bibliotecaApp.dto.UserRequestDto;
+import com.cjcm.bibliotecaApp.dto.UserResponseDto;
+import com.cjcm.bibliotecaApp.mappers.UserMapper;
 import com.cjcm.bibliotecaApp.persistence.entities.UserEntity;
 import com.cjcm.bibliotecaApp.persistence.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -10,28 +13,36 @@ import java.util.List;
 public class UserService {
 
   private final UserRepository userRepository;
+  private final UserMapper userMapper;
 
-  public UserService(UserRepository userRepository) {
+  public UserService(UserRepository userRepository, UserMapper userMapper) {
     this.userRepository = userRepository;
+    this.userMapper = userMapper;
   }
 
-  public List<UserEntity> getAllUsers() {
-    return userRepository.findAll();
+  public List<UserResponseDto> getAllUsers() {
+
+    List<UserEntity> users = userRepository.findAll();
+
+    return users.stream()
+            .map(userMapper::mapToUserResponseDto)
+            .toList();
   }
 
-  public UserEntity getUserById(Integer id) {
-    return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+  public UserResponseDto getUserById(Integer id) {
+
+    UserEntity user = userRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+
+
+    return userMapper.mapToUserResponseDto(user);
+
   }
 
-  public UserEntity createUser(UserEntity userEntity){
+  public void createUser(UserRequestDto userRequestDto){
 
-    userEntity = UserEntity.builder()
-            .email(userEntity.getEmail())
-            .name(userEntity.getName())
-            .lastName(userEntity.getLastName())
-            .password(userEntity.getPassword())
-            .build();
+    UserEntity userEntity = userMapper.mapToUserEntity(userRequestDto);
 
-    return userRepository.save(userEntity);
+    userRepository.save(userEntity);
   }
 }

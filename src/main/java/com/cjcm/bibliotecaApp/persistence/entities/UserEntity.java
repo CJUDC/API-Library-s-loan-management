@@ -8,9 +8,7 @@ import java.util.List;
 
 @Entity
 @Getter @Setter
-@Builder
 @NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "users")
 public class UserEntity {
 
@@ -31,6 +29,5 @@ public class UserEntity {
   private String password;
 
   @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-  @JsonIgnore
   private List<LoanEntity> loans;
 }

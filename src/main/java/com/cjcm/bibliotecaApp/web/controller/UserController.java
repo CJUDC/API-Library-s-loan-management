@@ -1,6 +1,7 @@
 package com.cjcm.bibliotecaApp.web.controller;
 
-import com.cjcm.bibliotecaApp.persistence.entities.UserEntity;
+import com.cjcm.bibliotecaApp.dto.UserRequestDto;
+import com.cjcm.bibliotecaApp.dto.UserResponseDto;
 import com.cjcm.bibliotecaApp.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,21 +19,23 @@ public class UserController {
   }
 
   @GetMapping("/users")
-  public ResponseEntity<List<UserEntity>> getAllUsers() {
-    List<UserEntity> users = userService.getAllUsers();
+  public ResponseEntity<List<UserResponseDto>> getAllUsers() {
+    List<UserResponseDto> users = userService.getAllUsers();
     return ResponseEntity.ok(users);
   }
 
 
   @GetMapping("/users/{id}")
-  public ResponseEntity<UserEntity> getUserById(@PathVariable Integer id) {
-    UserEntity user = userService.getUserById(id);
+  public ResponseEntity<UserResponseDto> getUserById(@PathVariable Integer id) {
+    UserResponseDto user = userService.getUserById(id);
     return ResponseEntity.ok(user);
   }
 
-  @PostMapping("/users")
-  public ResponseEntity<Void> createUser(@RequestBody UserEntity user) {
-    userService.createUser(user);
+  @PostMapping("/add")
+  public ResponseEntity<Void> createUser(@RequestBody UserRequestDto userRequest) {
+
+    userService.createUser(userRequest);
+
     return ResponseEntity.ok().build();
   }
 }
