@@ -1,9 +1,9 @@
 package com.cjcm.bibliotecaApp.service;
 
+import com.cjcm.bibliotecaApp.dto.bookDtos.BookRequestDto;
 import com.cjcm.bibliotecaApp.dto.bookDtos.BookResponseDto;
 import com.cjcm.bibliotecaApp.mappers.BookMapper;
 import com.cjcm.bibliotecaApp.persistence.entities.BookEntity;
-import com.cjcm.bibliotecaApp.persistence.entities.UserEntity;
 import com.cjcm.bibliotecaApp.persistence.repository.BookRepository;
 import org.springframework.stereotype.Service;
 
@@ -37,14 +37,12 @@ public class BookService {
     return bookMapper.mapToBookDto(book);
   }
 
-//  public BookEntity createBook(BookEntity bookEntity){
-//    bookEntity = BookEntity.builder()
-//            .title(bookEntity.getTitle())
-//            .author(bookEntity.getAuthor())
-//            .stock(bookEntity.getStock())
-//            .isbn(bookEntity.getIsbn())
-//            .build();
-//
-//    return bookRepository.save(bookEntity);
-//  }
+  public BookResponseDto createBook(BookRequestDto bookRequestDto){
+
+    BookEntity bookEntity = bookMapper.mapToBookEntity(bookRequestDto);
+
+    bookRepository.save(bookEntity);
+
+    return bookMapper.mapToBookDto(bookEntity);
+  }
 }
