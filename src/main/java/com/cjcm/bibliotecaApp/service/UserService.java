@@ -1,7 +1,7 @@
 package com.cjcm.bibliotecaApp.service;
 
-import com.cjcm.bibliotecaApp.model_domain.UserEntity;
-import com.cjcm.bibliotecaApp.repository.UserRepository;
+import com.cjcm.bibliotecaApp.persistence.entities.UserEntity;
+import com.cjcm.bibliotecaApp.persistence.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,6 +1,6 @@
-package com.cjcm.bibliotecaApp.controller;
+package com.cjcm.bibliotecaApp.web.controller;
 
-import com.cjcm.bibliotecaApp.model_domain.LoanEntity;
+import com.cjcm.bibliotecaApp.persistence.entities.LoanEntity;
 import com.cjcm.bibliotecaApp.service.LoanService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

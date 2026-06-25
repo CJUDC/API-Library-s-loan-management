@@ -1,7 +1,7 @@
 package com.cjcm.bibliotecaApp.service;
 
-import com.cjcm.bibliotecaApp.model_domain.LoanEntity;
-import com.cjcm.bibliotecaApp.repository.LoanRepository;
+import com.cjcm.bibliotecaApp.persistence.entities.LoanEntity;
+import com.cjcm.bibliotecaApp.persistence.repository.LoanRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

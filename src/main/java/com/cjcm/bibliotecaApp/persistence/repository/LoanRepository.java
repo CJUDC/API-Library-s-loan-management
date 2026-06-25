@@ -1,6 +1,6 @@
-package com.cjcm.bibliotecaApp.repository;
+package com.cjcm.bibliotecaApp.persistence.repository;
 
-import com.cjcm.bibliotecaApp.model_domain.LoanEntity;
+import com.cjcm.bibliotecaApp.persistence.entities.LoanEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

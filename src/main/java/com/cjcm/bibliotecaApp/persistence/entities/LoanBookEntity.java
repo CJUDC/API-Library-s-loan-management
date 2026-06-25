@@ -1,4 +1,4 @@
-package com.cjcm.bibliotecaApp.model_domain;
+package com.cjcm.bibliotecaApp.persistence.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;

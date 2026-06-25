@@ -1,11 +1,8 @@
-package com.cjcm.bibliotecaApp.repository;
+package com.cjcm.bibliotecaApp.persistence.repository;
 
-import com.cjcm.bibliotecaApp.model_domain.UserEntity;
+import com.cjcm.bibliotecaApp.persistence.entities.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Integer> {

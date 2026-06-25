@@ -1,6 +1,6 @@
-package com.cjcm.bibliotecaApp.controller;
+package com.cjcm.bibliotecaApp.web.controller;
 
-import com.cjcm.bibliotecaApp.model_domain.UserEntity;
+import com.cjcm.bibliotecaApp.persistence.entities.UserEntity;
 import com.cjcm.bibliotecaApp.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

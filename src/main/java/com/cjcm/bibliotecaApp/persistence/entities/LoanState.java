@@ -1,4 +1,4 @@
-package com.cjcm.bibliotecaApp.model_domain;
+package com.cjcm.bibliotecaApp.persistence.entities;
 
 public enum LoanState {
   ACTIVE,
