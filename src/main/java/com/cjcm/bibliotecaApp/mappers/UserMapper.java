@@ -12,7 +12,7 @@ public class UserMapper {
 //
 //  } TODO
 
-  public static UserResponseDto mapToUserResponseDto(UserEntity userEntity) {
+  public UserResponseDto mapToUserResponseDto(UserEntity userEntity) {
     // Implementation for mapping UserEntity to UserResponseDto
     return UserResponseDto.builder()
             .id(userEntity.getUserId())
