@@ -24,12 +24,11 @@ public class BookController {
     return ResponseEntity.ok(books);
   }
 
-//  @GetMapping("/{id}")
-//  public ResponseEntity<BookEntity> getBookById(@PathVariable Integer id) {
-//    BookEntity book = bookService.getBookById(id);
-//    return ResponseEntity.ok(book);
-//  }
-//
+  @GetMapping("/{id}")
+  public ResponseEntity<BookResponseDto> getBookById(@PathVariable Integer id) {
+    return ResponseEntity.ok(bookService.getBookById(id));
+  }
+
 //  @PostMapping("/add")
 //  public ResponseEntity<Void> createBook(@RequestBody BookEntity book) {
 //    bookService.createBook(book);

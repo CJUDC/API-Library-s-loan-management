@@ -3,9 +3,11 @@ package com.cjcm.bibliotecaApp.service;
 import com.cjcm.bibliotecaApp.dto.bookDtos.BookResponseDto;
 import com.cjcm.bibliotecaApp.mappers.BookMapper;
 import com.cjcm.bibliotecaApp.persistence.entities.BookEntity;
+import com.cjcm.bibliotecaApp.persistence.entities.UserEntity;
 import com.cjcm.bibliotecaApp.persistence.repository.BookRepository;
 import org.springframework.stereotype.Service;
 
+import java.awt.print.Book;
 import java.util.List;
 
 @Service
@@ -27,10 +29,14 @@ public class BookService {
             .toList();
   }
 
-//  public BookEntity getBookById(Integer id){
-//    return bookRepository.findById(id).orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
-//  }
-//
+  public BookResponseDto getBookById(Integer id){
+
+    BookEntity book = bookRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Book not found with id: " + id));
+
+    return bookMapper.mapToBookDto(book);
+  }
+
 //  public BookEntity createBook(BookEntity bookEntity){
 //    bookEntity = BookEntity.builder()
 //            .title(bookEntity.getTitle())
