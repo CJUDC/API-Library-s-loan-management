@@ -4,6 +4,7 @@ import com.cjcm.bibliotecaApp.dto.UserResponseDto;
 import com.cjcm.bibliotecaApp.mappers.UserMapper;
 import com.cjcm.bibliotecaApp.persistence.entities.UserEntity;
 import com.cjcm.bibliotecaApp.persistence.repository.UserRepository;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,12 +26,18 @@ public class UserService {
     List<UserEntity> users = userRepository.findAll();
 
     return users.stream()
-            .map(UserMapper::mapToUserResponseDto)
+            .map(userMapper::mapToUserResponseDto)
             .toList();
   }
 
-  public UserEntity getUserById(Integer id) {
-    return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+  public UserResponseDto getUserById(Integer id) {
+
+    UserEntity user = userRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+
+
+    return userMapper.mapToUserResponseDto(user);
+
   }
 
   public UserEntity createUser(UserEntity userEntity){
