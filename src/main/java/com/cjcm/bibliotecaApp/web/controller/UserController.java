@@ -1,5 +1,6 @@
 package com.cjcm.bibliotecaApp.web.controller;
 
+import com.cjcm.bibliotecaApp.dto.UserResponseDto;
 import com.cjcm.bibliotecaApp.persistence.entities.UserEntity;
 import com.cjcm.bibliotecaApp.service.UserService;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +19,8 @@ public class UserController {
   }
 
   @GetMapping("/users")
-  public ResponseEntity<List<UserEntity>> getAllUsers() {
-    List<UserEntity> users = userService.getAllUsers();
+  public ResponseEntity<List<UserResponseDto>> getAllUsers() {
+    List<UserResponseDto> users = userService.getAllUsers();
     return ResponseEntity.ok(users);
   }
 
