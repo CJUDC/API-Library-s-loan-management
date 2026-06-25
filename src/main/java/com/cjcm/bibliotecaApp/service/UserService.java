@@ -1,14 +1,13 @@
 package com.cjcm.bibliotecaApp.service;
 
+import com.cjcm.bibliotecaApp.dto.UserRequestDto;
 import com.cjcm.bibliotecaApp.dto.UserResponseDto;
 import com.cjcm.bibliotecaApp.mappers.UserMapper;
 import com.cjcm.bibliotecaApp.persistence.entities.UserEntity;
 import com.cjcm.bibliotecaApp.persistence.repository.UserRepository;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -40,15 +39,10 @@ public class UserService {
 
   }
 
-//  public UserEntity createUser(UserEntity userEntity){
-//
-//    userEntity = UserEntity.builder()
-//            .email(userEntity.getEmail())
-//            .name(userEntity.getName())
-//            .lastName(userEntity.getLastName())
-//            .password(userEntity.getPassword())
-//            .build();
-//
-//    return userRepository.save(userEntity);
-//  }
+  public void createUser(UserRequestDto userRequestDto){
+
+    UserEntity userEntity = userMapper.mapToUserEntity(userRequestDto);
+
+    userRepository.save(userEntity);
+  }
 }

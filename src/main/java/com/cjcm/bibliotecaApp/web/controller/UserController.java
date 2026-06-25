@@ -1,7 +1,7 @@
 package com.cjcm.bibliotecaApp.web.controller;
 
+import com.cjcm.bibliotecaApp.dto.UserRequestDto;
 import com.cjcm.bibliotecaApp.dto.UserResponseDto;
-import com.cjcm.bibliotecaApp.persistence.entities.UserEntity;
 import com.cjcm.bibliotecaApp.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,9 +31,11 @@ public class UserController {
     return ResponseEntity.ok(user);
   }
 
-//  @PostMapping("/users")
-//  public ResponseEntity<Void> createUser(@RequestBody UserEntity user) {
-//    userService.createUser(user);
-//    return ResponseEntity.ok().build();
-//  }
+  @PostMapping("/add")
+  public ResponseEntity<Void> createUser(@RequestBody UserRequestDto userRequest) {
+
+    userService.createUser(userRequest);
+
+    return ResponseEntity.ok().build();
+  }
 }
