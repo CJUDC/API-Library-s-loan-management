@@ -40,15 +40,15 @@ public class UserService {
 
   }
 
-  public UserEntity createUser(UserEntity userEntity){
-
-    userEntity = UserEntity.builder()
-            .email(userEntity.getEmail())
-            .name(userEntity.getName())
-            .lastName(userEntity.getLastName())
-            .password(userEntity.getPassword())
-            .build();
-
-    return userRepository.save(userEntity);
-  }
+//  public UserEntity createUser(UserEntity userEntity){
+//
+//    userEntity = UserEntity.builder()
+//            .email(userEntity.getEmail())
+//            .name(userEntity.getName())
+//            .lastName(userEntity.getLastName())
+//            .password(userEntity.getPassword())
+//            .build();
+//
+//    return userRepository.save(userEntity);
+//  }
 }
