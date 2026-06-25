@@ -21,4 +21,16 @@ public class UserMapper {
             .lastName(userEntity.getLastName())
             .build();
   }
+
+  public UserEntity mapToUserEntity(UserRequestDto userRequestDto){
+
+    UserEntity userEntity = new UserEntity();
+
+    userEntity.setEmail(userRequestDto.email());
+    userEntity.setName(userRequestDto.name());
+    userEntity.setLastName(userRequestDto.lastName());
+    userEntity.setPassword(userRequestDto.password());
+
+    return userEntity;
+  }
 }
