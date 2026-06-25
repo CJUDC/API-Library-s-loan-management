@@ -31,6 +31,5 @@ public class UserEntity {
   private String password;
 
   @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
-  @JsonIgnore
   private List<LoanEntity> loans;
 }
