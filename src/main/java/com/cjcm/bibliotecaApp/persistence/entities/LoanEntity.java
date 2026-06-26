@@ -35,6 +35,5 @@ public class LoanEntity {
   private UserEntity user;
 
   @OneToMany(mappedBy = "loan", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-  @JsonIgnore
   private List<LoanBookEntity> loanBooks;
 }
