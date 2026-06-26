@@ -10,9 +10,7 @@ import java.util.List;
 @Entity
 @Table(name = "loans")
 @Getter @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class LoanEntity {
 
   @Id
