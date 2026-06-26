@@ -1,5 +1,6 @@
 package com.cjcm.bibliotecaApp.dto.loanDtos;
 
+import com.cjcm.bibliotecaApp.dto.loanBooksDtos.LoanBookResponseDto;
 import com.cjcm.bibliotecaApp.persistence.entities.LoanBookEntity;
 import com.cjcm.bibliotecaApp.persistence.entities.LoanState;
 import lombok.Builder;
@@ -14,6 +15,6 @@ public record LoanResponseDto(
         LocalDateTime expireDate,
         LocalDateTime returnDate,
         LoanState state,
-        List<LoanBookEntity> loanBooks
+        List<LoanBookResponseDto> loanBooks
 ) {
 }
