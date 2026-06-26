@@ -27,10 +27,13 @@ public class LoanService {
             .toList();
   }
 
-//  public LoanEntity getLoanById(Integer loanId) {
-//    return loanRepository.findById(loanId).orElseThrow(() -> new RuntimeException("Loan not found"));
-//  }
-//
+  public LoanResponseDto getLoanById(Integer loanId) {
+
+    LoanEntity loan = loanRepository.findById(loanId).orElseThrow(() -> new RuntimeException("Loan not found"));
+
+    return loanMapper.mapToLoanDto(loan);
+  }
+
 //  public LoanEntity createLoan(LoanEntity loan) {
 //
 //    loan = LoanEntity.builder()
