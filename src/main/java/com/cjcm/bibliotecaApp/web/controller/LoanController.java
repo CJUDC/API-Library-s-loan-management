@@ -24,11 +24,11 @@ public class LoanController {
     return ResponseEntity.ok(loans);
   }
 
-//  @GetMapping("/{loanId}")
-//  public ResponseEntity<LoanEntity> getLoanById(Integer loanId) {
-//    return ResponseEntity.ok(loanService.getLoanById(loanId));
-//  }
-//
+  @GetMapping("/{loanId}")
+  public ResponseEntity<LoanResponseDto> getLoanById(@PathVariable Integer loanId) {
+    return ResponseEntity.ok(loanService.getLoanById(loanId));
+  }
+
 //  @PostMapping("/create")
 //  public ResponseEntity<Void> createLoan(@RequestBody LoanEntity loan) {
 //    loanService.createLoan(loan);
