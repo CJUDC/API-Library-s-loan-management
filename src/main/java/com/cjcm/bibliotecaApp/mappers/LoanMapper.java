@@ -18,6 +18,8 @@ public class LoanMapper {
   public LoanResponseDto mapToLoanDto(LoanEntity loanEntity){
     return LoanResponseDto.builder()
             .loanId(loanEntity.getLoanId())
+            .userId(loanEntity.getUser().getUserId())
+            .userName(loanEntity.getUser().getName())
             .startDate(loanEntity.getStartDate())
             .expireDate(loanEntity.getExpireDate())
             .returnDate(loanEntity.getReturnDate())

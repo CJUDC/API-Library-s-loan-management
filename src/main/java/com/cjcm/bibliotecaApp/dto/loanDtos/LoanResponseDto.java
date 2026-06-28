@@ -11,6 +11,8 @@ import java.util.List;
 @Builder
 public record LoanResponseDto(
         Integer loanId,
+        Integer userId,
+        String userName,
         LocalDateTime startDate,
         LocalDateTime expireDate,
         LocalDateTime returnDate,
