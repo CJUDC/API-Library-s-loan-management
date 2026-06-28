@@ -30,12 +30,10 @@ public class LoanMapper {
 
     LoanEntity loanEntity = new LoanEntity();
 
-    loanEntity.setLoanId(loanRequestDto.loanId());
     loanEntity.setStartDate(loanRequestDto.startDate());
     loanEntity.setExpireDate(loanRequestDto.expireDate());
     loanEntity.setReturnDate(loanRequestDto.returnDate());
     loanEntity.setState(loanRequestDto.state());
-    loanEntity.setLoanBooks(loanRequestDto.loanBooks());
 
     return loanEntity;
   }
