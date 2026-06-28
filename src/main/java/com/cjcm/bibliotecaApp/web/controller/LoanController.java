@@ -1,5 +1,6 @@
 package com.cjcm.bibliotecaApp.web.controller;
 
+import com.cjcm.bibliotecaApp.dto.loanDtos.LoanRequestDto;
 import com.cjcm.bibliotecaApp.dto.loanDtos.LoanResponseDto;
 import com.cjcm.bibliotecaApp.persistence.entities.LoanEntity;
 import com.cjcm.bibliotecaApp.service.LoanService;
@@ -29,10 +30,9 @@ public class LoanController {
     return ResponseEntity.ok(loanService.getLoanById(loanId));
   }
 
-//  @PostMapping("/create")
-//  public ResponseEntity<Void> createLoan(@RequestBody LoanEntity loan) {
-//    loanService.createLoan(loan);
-//    return ResponseEntity.ok().build();
-//  }
+  @PostMapping("/create")
+  public ResponseEntity<LoanResponseDto> createLoan(@RequestBody LoanRequestDto loan) {
+    return ResponseEntity.ok(loanService.createLoan(loan));
+  }
 
 }
