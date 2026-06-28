@@ -16,10 +16,18 @@ public class LoanMapper {
   }
 
   public LoanResponseDto mapToLoanDto(LoanEntity loanEntity){
+    Integer userId = null;
+    String userName = null;
+
+    if (loanEntity.getUser() != null) {
+      userId = loanEntity.getUser().getUserId();
+      userName = loanEntity.getUser().getName();
+    }
+
     return LoanResponseDto.builder()
             .loanId(loanEntity.getLoanId())
-            .userId(loanEntity.getUser().getUserId())
-            .userName(loanEntity.getUser().getName())
+            .userId(userId)
+            .userName(userName)
             .startDate(loanEntity.getStartDate())
             .expireDate(loanEntity.getExpireDate())
             .returnDate(loanEntity.getReturnDate())
