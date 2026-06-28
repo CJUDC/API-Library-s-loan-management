@@ -10,9 +10,7 @@ import java.util.List;
 @Entity
 @Table(name = "loans")
 @Getter @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-@Builder
 public class LoanEntity {
 
   @Id
@@ -37,6 +35,5 @@ public class LoanEntity {
   private UserEntity user;
 
   @OneToMany(mappedBy = "loan", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-  @JsonIgnore
   private List<LoanBookEntity> loanBooks;
 }
